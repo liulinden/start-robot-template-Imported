@@ -8,6 +8,7 @@ import frc.robot.commands.ShooterCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.FlywheelSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.TankDriveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
@@ -29,6 +30,7 @@ public class RobotContainer {
     // Create joysticks
     //private final CommandXboxController controller = new CommandXboxController(DriverConstants.DRIVER_JOYSTICK_PORT);
     private final CommandJoystick joystick = new CommandJoystick(DriverConstants.DRIVER_JOYSTICK_PORT);
+    private final TankDriveSubsystem tankDrive;
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -42,6 +44,7 @@ public class RobotContainer {
     /** Use this method to define your trigger->command mappings. */
     private void configureBindings() {
         
+        TankDriveSubsystem(joystick.getDirectionDegrees(), joystick.getMagnitude())
         /*
         controller.leftTrigger().whileTrue(new IntakeCommand(intake));
         controller.rightTrigger().onTrue(new ShooterCommand(intake, flywheels));
