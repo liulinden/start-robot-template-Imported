@@ -30,7 +30,7 @@ public class RobotContainer {
     // Create joysticks
     //private final CommandXboxController controller = new CommandXboxController(DriverConstants.DRIVER_JOYSTICK_PORT);
     private final CommandJoystick joystick = new CommandJoystick(DriverConstants.DRIVER_JOYSTICK_PORT);
-    private final TankDriveSubsystem tankDrive;
+    private final TankDriveSubsystem tankDriveSubsystem = new TankDriveSubsystem();
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -44,7 +44,7 @@ public class RobotContainer {
     /** Use this method to define your trigger->command mappings. */
     private void configureBindings() {
         
-        TankDriveSubsystem(joystick.getDirectionDegrees(), joystick.getMagnitude())
+        joystick.whileTrue(tankDriveSubsystem.runOnce(tankDriveSubsystem::tankDrive(joystick.getDirectionDegrees(), joystick.getMagnitude())));
         /*
         controller.leftTrigger().whileTrue(new IntakeCommand(intake));
         controller.rightTrigger().onTrue(new ShooterCommand(intake, flywheels));
