@@ -25,6 +25,7 @@ public class TankDriveSubsystem extends SubsystemBase {
     }
 
     public void tankDrive(double angle, double r) {
+        /*
         double adjustedAngle = angle % 360;
         double leftSpeed, rightSpeed;
         if (adjustedAngle < 90) {
@@ -42,6 +43,10 @@ public class TankDriveSubsystem extends SubsystemBase {
         }
         setLeftWheelsSpeed(r*leftSpeed);
         setRightWheelsSpeed(r*rightSpeed);
+        */
+
+        setLeftWheelsSpeed(r*Math.cos(angle+45));
+        setRightWheelsSpeed(r*Math.sin(angle+45));
     }
 
     /**

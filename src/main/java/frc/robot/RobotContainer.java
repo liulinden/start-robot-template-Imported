@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
+import frc.robot.commands.Drive;
 
 /**
  * This class is where the bulk of the robot should be declared.
@@ -29,7 +30,8 @@ public class RobotContainer {
 
     // Create joysticks
     //private final CommandXboxController controller = new CommandXboxController(DriverConstants.DRIVER_JOYSTICK_PORT);
-    private final CommandJoystick joystick = new CommandJoystick(DriverConstants.DRIVER_JOYSTICK_PORT);
+    
+    
     private final TankDriveSubsystem tankDriveSubsystem = new TankDriveSubsystem();
 
     /**
@@ -43,7 +45,7 @@ public class RobotContainer {
 
     /** Use this method to define your trigger->command mappings. */
     private void configureBindings() {
-        tankDrive(joystick.getDirectionDegrees(), joystick.getMagnitude());
+        tankDriveSubsystem.setDefaultCommand(new Drive(tankDriveSubsystem));
         /*
         controller.leftTrigger().whileTrue(new IntakeCommand(intake));
         controller.rightTrigger().onTrue(new ShooterCommand(intake, flywheels));
