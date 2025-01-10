@@ -43,8 +43,7 @@ public class RobotContainer {
 
     /** Use this method to define your trigger->command mappings. */
     private void configureBindings() {
-        
-        joystick.whileTrue(tankDriveSubsystem.runOnce(tankDriveSubsystem::tankDrive(joystick.getDirectionDegrees(), joystick.getMagnitude())));
+        tankDrive(joystick.getDirectionDegrees(), joystick.getMagnitude());
         /*
         controller.leftTrigger().whileTrue(new IntakeCommand(intake));
         controller.rightTrigger().onTrue(new ShooterCommand(intake, flywheels));
