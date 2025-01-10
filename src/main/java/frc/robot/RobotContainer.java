@@ -25,13 +25,10 @@ import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
  */
 public class RobotContainer {
     // The robot's subsystems and commands are defined here...
-    private final IntakeSubsystem intake = new IntakeSubsystem();
-    private final FlywheelSubsystem flywheels = new FlywheelSubsystem();
 
     // Create joysticks
-    private final CommandXboxController controller = new CommandXboxController(DriverConstants.DRIVER_JOYSTICK_PORT);
-    // private final CommandJoystick operatorJoystick = new
-    // CommandJoystick(OperatorConstants.OPERATOR_JOYSTICK_PORT);
+    //private final CommandXboxController controller = new CommandXboxController(DriverConstants.DRIVER_JOYSTICK_PORT);
+    private final CommandJoystick joystick = new CommandJoystick(DriverConstants.DRIVER_JOYSTICK_PORT);
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -45,6 +42,7 @@ public class RobotContainer {
     /** Use this method to define your trigger->command mappings. */
     private void configureBindings() {
         
+        /*
         controller.leftTrigger().whileTrue(new IntakeCommand(intake));
         controller.rightTrigger().onTrue(new ShooterCommand(intake, flywheels));
 
@@ -66,6 +64,7 @@ public class RobotContainer {
                 Commands.parallel(flywheels.runOnce(flywheels::stopFlywheels),intake.runOnce(intake::stopIntake))
                 )
             );
+        */
     }
 
     /**
